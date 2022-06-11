@@ -2,6 +2,7 @@ using projectApi.DTO;
 using projectApi.Model;
 using projectApi.Repository;
 using AutoMapper;
+using projectApi.Model.Conversation;
 
 namespace projectApi.Service
 {
@@ -15,6 +16,12 @@ namespace projectApi.Service
             this.repository = repository;
             this.mapper = mapper;
         }
+
+        public async Task<IEnumerable<Conversation>> GetConversationsByUserId(int id)
+        {
+            return await repository.GetConversationsByUserId(id);
+        }
+
         public async Task<IEnumerable<UserDto>> GetUsersAsync()
         {
             var dbResult = await repository.GetAllUsersAsync();

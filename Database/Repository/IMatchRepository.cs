@@ -1,4 +1,5 @@
 using projectApi.Model;
+using projectApi.Model.Conversation;
 
 namespace projectApi.Repository
 {
@@ -6,5 +7,6 @@ namespace projectApi.Repository
     {
          Task<IEnumerable<UserAccount>> GetAllUsersAsync();
          Task PostUserAsync(UserAccount user);
+         Task<IEnumerable<Conversation>> GetConversationsByUserId(int id);
     }
 }
